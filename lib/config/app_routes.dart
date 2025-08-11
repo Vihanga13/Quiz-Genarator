@@ -5,8 +5,11 @@ import '../screens/analytics_screen.dart';
 import '../screens/certificate_screen.dart';
 import '../screens/admin_dashboard_screen.dart';
 import '../screens/profile_screen.dart';
+// TODO: Add imports for splash and login screens after they are finalized
 
 class AppRoutes {
+  static const String splash = '/splash';
+  static const String login = '/login';
   static const String home = '/';
   static const String quiz = '/quiz';
   static const String analytics = '/analytics';
@@ -16,6 +19,8 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> get routes {
     return {
+      splash: (context) => const HomeScreen(), // Temporary
+      login: (context) => const HomeScreen(), // Temporary
       home: (context) => const HomeScreen(),
       quiz: (context) => const QuizScreen(),
       analytics: (context) => const AnalyticsScreen(),
