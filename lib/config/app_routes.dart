@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../screens/splash_screen.dart';
+import '../screens/login_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/quiz_screen.dart';
 import '../screens/analytics_screen.dart';
 import '../screens/certificate_screen.dart';
 import '../screens/admin_dashboard_screen.dart';
 import '../screens/profile_screen.dart';
-// TODO: Add imports for splash and login screens after they are finalized
 
 class AppRoutes {
   static const String splash = '/splash';
@@ -19,8 +20,8 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> get routes {
     return {
-      splash: (context) => const HomeScreen(), // Temporary
-      login: (context) => const HomeScreen(), // Temporary
+      splash: (context) => const SplashScreen(),
+      login: (context) => const LoginScreen(),
       home: (context) => const HomeScreen(),
       quiz: (context) => const QuizScreen(),
       analytics: (context) => const AnalyticsScreen(),

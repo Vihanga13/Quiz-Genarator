@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Primary Colors
-  static const Color deepBlue = Color(0xFF1E3A8A);
-  static const Color cyberYellow = Color(0xFFFFD700);
-  static const Color graphiteBlack = Color(0xFF1F2937);
+  // Primary Colors - New Color Scheme
+  static const Color primaryPurple = Color(0xFFD144D6);  // #D144D6
+  static const Color primaryBlack = Color(0xFF0A0A0A);   // #0A0A0A
+  
+  // Legacy colors (keeping for compatibility)
+  static const Color deepBlue = Color(0xFF0A0A0A);       // Now using black
+  static const Color cyberYellow = Color(0xFFD144D6);    // Now using purple
+  static const Color graphiteBlack = Color(0xFF0A0A0A);
   
   // Supporting Colors
   static const Color white = Color(0xFFFFFFFF);
   static const Color lightGray = Color(0xFFF3F4F6);
   static const Color mediumGray = Color(0xFF6B7280);
-  static const Color darkGray = Color(0xFF374151);
+  static const Color darkGray = Color(0xFF2D2D2D);       // Lighter than black for contrast
   
-  // Status Colors
-  static const Color success = Color(0xFF10B981);
+  // Status Colors (with purple accent)
+  static const Color success = Color(0xFFD144D6);        // Using purple
   static const Color warning = Color(0xFFF59E0B);
   static const Color error = Color(0xFFEF4444);
-  static const Color info = Color(0xFF3B82F6);
+  static const Color info = Color(0xFFD144D6);           // Using purple
 }
 
 class AppFonts {
@@ -29,29 +33,29 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.light(
-        primary: AppColors.deepBlue,
-        secondary: AppColors.cyberYellow,
+        primary: AppColors.primaryPurple,
+        secondary: AppColors.primaryBlack,
         surface: AppColors.white,
-        background: AppColors.lightGray,
+        background: AppColors.primaryBlack,
         error: AppColors.error,
         onPrimary: AppColors.white,
-        onSecondary: AppColors.graphiteBlack,
-        onSurface: AppColors.graphiteBlack,
-        onBackground: AppColors.graphiteBlack,
+        onSecondary: AppColors.white,
+        onSurface: AppColors.primaryBlack,
+        onBackground: AppColors.white,
         onError: AppColors.white,
       ),
       
       // App Bar Theme
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.deepBlue,
-        foregroundColor: AppColors.white,
+        backgroundColor: AppColors.primaryBlack,
+        foregroundColor: AppColors.primaryPurple,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: AppColors.white,
+          color: AppColors.primaryPurple,
         ),
       ),
       
@@ -61,49 +65,49 @@ class AppTheme {
           fontFamily: AppFonts.poppins,
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         displayMedium: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 28,
           fontWeight: FontWeight.w600,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         displaySmall: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 24,
           fontWeight: FontWeight.w600,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         headlineLarge: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         headlineMedium: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 20,
           fontWeight: FontWeight.w500,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         headlineSmall: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 18,
           fontWeight: FontWeight.w500,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         titleLarge: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         titleMedium: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         titleSmall: TextStyle(
           fontFamily: AppFonts.poppins,
@@ -115,13 +119,13 @@ class AppTheme {
           fontFamily: AppFonts.poppins,
           fontSize: 16,
           fontWeight: FontWeight.normal,
-          color: AppColors.graphiteBlack,
+          color: AppColors.white,
         ),
         bodyMedium: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 14,
           fontWeight: FontWeight.normal,
-          color: AppColors.graphiteBlack,
+          color: AppColors.white,
         ),
         bodySmall: TextStyle(
           fontFamily: AppFonts.poppins,
@@ -133,13 +137,13 @@ class AppTheme {
           fontFamily: AppFonts.jetBrainsMono,
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         labelMedium: TextStyle(
           fontFamily: AppFonts.jetBrainsMono,
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          color: AppColors.graphiteBlack,
+          color: AppColors.primaryPurple,
         ),
         labelSmall: TextStyle(
           fontFamily: AppFonts.jetBrainsMono,
@@ -152,8 +156,8 @@ class AppTheme {
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.deepBlue,
-          foregroundColor: AppColors.white,
+          backgroundColor: AppColors.primaryPurple,
+          foregroundColor: AppColors.primaryBlack,
           elevation: 2,
           shadowColor: AppColors.deepBlue.withOpacity(0.3),
           shape: RoundedRectangleBorder(
@@ -187,11 +191,12 @@ class AppTheme {
       
       // Card Theme
       cardTheme: CardTheme(
-        color: AppColors.white,
+        color: AppColors.primaryBlack,
         elevation: 2,
-        shadowColor: AppColors.graphiteBlack.withOpacity(0.1),
+        shadowColor: AppColors.primaryPurple.withOpacity(0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: AppColors.primaryPurple.withOpacity(0.3)),
         ),
         margin: const EdgeInsets.all(8),
       ),
@@ -199,19 +204,19 @@ class AppTheme {
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: AppColors.primaryBlack,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.mediumGray),
+          borderSide: const BorderSide(color: AppColors.primaryPurple),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.mediumGray),
+          borderSide: const BorderSide(color: AppColors.primaryPurple),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.deepBlue, width: 2),
+          borderSide: const BorderSide(color: AppColors.primaryPurple, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -250,29 +255,29 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.cyberYellow,
-        secondary: AppColors.deepBlue,
-        surface: AppColors.darkGray,
-        background: AppColors.graphiteBlack,
+        primary: AppColors.primaryPurple,
+        secondary: AppColors.primaryBlack,
+        surface: AppColors.primaryBlack,
+        background: AppColors.primaryBlack,
         error: AppColors.error,
-        onPrimary: AppColors.graphiteBlack,
-        onSecondary: AppColors.white,
-        onSurface: AppColors.white,
-        onBackground: AppColors.white,
+        onPrimary: AppColors.primaryBlack,
+        onSecondary: AppColors.primaryPurple,
+        onSurface: AppColors.primaryPurple,
+        onBackground: AppColors.primaryPurple,
         onError: AppColors.white,
       ),
       
       // App Bar Theme
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.graphiteBlack,
-        foregroundColor: AppColors.white,
+        backgroundColor: AppColors.primaryBlack,
+        foregroundColor: AppColors.primaryPurple,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
           fontFamily: AppFonts.poppins,
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: AppColors.white,
+          color: AppColors.primaryPurple,
         ),
       ),
       

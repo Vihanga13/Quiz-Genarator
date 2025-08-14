@@ -28,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        backgroundColor: AppColors.deepBlue,
+        backgroundColor: AppColors.primaryBlack,
         foregroundColor: AppColors.white,
         elevation: 0,
         actions: [
@@ -75,7 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [AppColors.deepBlue, AppColors.info],
+          colors: [AppColors.primaryBlack, AppColors.info],
         ),
       ),
       child: Column(
@@ -87,7 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               shape: BoxShape.circle,
               border: Border.all(color: AppColors.white, width: 4),
               gradient: const LinearGradient(
-                colors: [AppColors.cyberYellow, AppColors.warning],
+                colors: [AppColors.primaryPurple, AppColors.warning],
               ),
             ),
             child: const Icon(

@@ -5,6 +5,7 @@ import '../providers/auth_provider.dart';
 import '../providers/quiz_provider.dart';
 import '../models/quiz.dart';
 import '../config/app_theme.dart';
+import '../config/app_routes.dart';
 import '../widgets/quiz_card.dart';
 import '../widgets/leaderboard_widget.dart';
 import '../widgets/stats_overview.dart';
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           if (user?.role.name == 'trainer' || user?.role.name == 'recruiter') {
             return FloatingActionButton(
               onPressed: () => Navigator.pushNamed(context, '/admin-dashboard'),
-              backgroundColor: AppColors.cyberYellow,
+              backgroundColor: AppColors.primaryPurple,
               foregroundColor: AppColors.graphiteBlack,
               child: const Icon(FontAwesomeIcons.gear),
             );
@@ -122,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       expandedHeight: 100,
       floating: true,
       pinned: true,
-      backgroundColor: AppColors.deepBlue,
+      backgroundColor: AppColors.primaryBlack,
       flexibleSpace: FlexibleSpaceBar(
         title: Consumer<AuthProvider>(
           builder: (context, authProvider, child) {
@@ -155,6 +156,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           icon: const Icon(Icons.account_circle, color: AppColors.white),
           onSelected: (value) {
             switch (value) {
+              case 'login':
+                Navigator.pushNamed(context, AppRoutes.login);
+                break;
               case 'profile':
                 Navigator.pushNamed(context, '/profile');
                 break;
@@ -165,10 +169,25 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           },
           itemBuilder: (context) => [
             const PopupMenuItem(
+              value: 'login',
+              child: Row(
+                children: [
+                  Icon(Icons.login, color: AppColors.primaryPurple),
+                  SizedBox(width: 8),
+                  Flexible(
+                    child: Text(
+                      'Login',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const PopupMenuItem(
               value: 'profile',
               child: Row(
                 children: [
-                  Icon(Icons.person, color: AppColors.deepBlue),
+                  Icon(Icons.person, color: AppColors.primaryPurple),
                   SizedBox(width: 8),
                   Flexible(
                     child: Text(
@@ -207,14 +226,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [AppColors.deepBlue, AppColors.cyberYellow],
+            colors: [AppColors.primaryBlack, AppColors.primaryPurple],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: AppColors.deepBlue.withOpacity(0.3),
+              color: AppColors.primaryPurple.withOpacity(0.3),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -252,7 +271,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     label: const Text('AI Quiz'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.white,
-                      foregroundColor: AppColors.deepBlue,
+                      foregroundColor: AppColors.primaryBlack,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
                   ),
@@ -319,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           icon: const Icon(FontAwesomeIcons.robot, size: 14),
                           label: const Text('Generate AI Quiz'),
                           style: TextButton.styleFrom(
-                            foregroundColor: AppColors.deepBlue,
+                            foregroundColor: AppColors.primaryPurple,
                           ),
                         ),
                         TextButton(
@@ -418,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       onTap: (index) => setState(() => _selectedBottomNavIndex = index),
       type: BottomNavigationBarType.fixed,
       backgroundColor: AppColors.white,
-      selectedItemColor: AppColors.deepBlue,
+      selectedItemColor: AppColors.primaryPurple,
       unselectedItemColor: AppColors.mediumGray,
       elevation: 8,
       items: const [

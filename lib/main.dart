@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'config/app_theme.dart';
 import 'config/app_routes.dart';
 import 'providers/auth_provider.dart';
 import 'providers/quiz_provider.dart';
 import 'providers/analytics_provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Load environment variables
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    debugPrint('Failed to load .env file: $e');
+    // Continue execution even if .env file is not found
+  }
+  
   runApp(const TheTechnoQuizApp());
 }
 

@@ -111,7 +111,7 @@ class _QuizScreenState extends State<QuizScreen> {
           fontWeight: FontWeight.w600,
         ),
       ),
-      backgroundColor: AppColors.deepBlue,
+      backgroundColor: AppColors.primaryBlack,
       foregroundColor: AppColors.white,
       elevation: 0,
       actions: [
@@ -162,7 +162,7 @@ class _QuizScreenState extends State<QuizScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: const BoxDecoration(
-        color: AppColors.deepBlue,
+        color: AppColors.primaryBlack,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -189,7 +189,7 @@ class _QuizScreenState extends State<QuizScreen> {
               Text(
                 '${quizProvider.currentAnswers.length} answered',
                 style: const TextStyle(
-                  color: AppColors.cyberYellow,
+                  color: AppColors.primaryPurple,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -268,7 +268,7 @@ class _QuizScreenState extends State<QuizScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion 
                     ? AppColors.success 
-                    : AppColors.deepBlue,
+                    : AppColors.primaryPurple,
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),
             ),
