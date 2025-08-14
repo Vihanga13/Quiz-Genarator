@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:math' as math;
 import '../config/app_theme.dart';
 
@@ -132,6 +133,7 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primaryBlack,
       body: AnimatedBuilder(
         animation: Listenable.merge([
           _backgroundController,
@@ -196,10 +198,20 @@ class _LoginScreenState extends State<LoginScreen>
                                       ),
                                     ],
                                   ),
-                                  child: const Icon(
-                                    Icons.quiz,
-                                    size: 50,
-                                    color: AppColors.primaryBlack,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: SvgPicture.asset(
+                                      'assets/images/Add a heading (2).svg',
+                                      width: 50,
+                                      height: 50,
+                                      fit: BoxFit.contain,
+                                      // Fallback to icon if SVG fails to load
+                                      placeholderBuilder: (context) => const Icon(
+                                        Icons.quiz,
+                                        size: 50,
+                                        color: AppColors.primaryBlack,
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: 24),
